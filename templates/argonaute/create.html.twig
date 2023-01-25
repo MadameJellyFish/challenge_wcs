@@ -1,0 +1,34 @@
+{% extends 'layout/default.html.twig' %}
+
+{% block main %}
+  <!-- New member form -->
+  <h2>
+    Ajouter un(e) Argonaute
+  </h2>
+
+  <form class="new-member-form" action="/" methods="POST">
+    <label for="name">Nom de l&apos;Argonaute :</label>
+    <input id="name" name="inputNewArgonaute" type="text" placeholder="Charalampos" />
+    <button type="submit" name="submit">Envoyer</button>
+        {% if error is defined %}
+            <div class="error">{{error}}</div>
+        {% endif %}
+    </form
+
+   <h2>
+    Membres de l'équipage :
+  </h2>
+  <section class="member-list">
+    {% if mesargonautes is not empty %}
+    
+    {% for argonaute in mesargonautes %}
+      <div class="member-item">
+        {{ argonaute.nom }}
+      </div>
+    {% endfor %}
+
+    {% endif %}
+    
+  </section>
+
+{% endblock %}

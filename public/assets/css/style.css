@@ -38,6 +38,10 @@ main {
   flex: 1;
 }
 
+main>h2:first-child{
+  margin-bottom: 30px;
+}
+
 footer {
   background: red;
 }

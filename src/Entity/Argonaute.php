@@ -2,11 +2,11 @@
 
 namespace App\Entity;
 
-use App\Repository\ArgonautesRepository;
+use App\Repository\ArgonauteRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: ArgonautesRepository::class)]
-class Argonautes
+#[ORM\Entity(repositoryClass: ArgonauteRepository::class)]
+class Argonaute
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]

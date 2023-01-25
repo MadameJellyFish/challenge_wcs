@@ -25,28 +25,30 @@ class ArgonauteController extends AbstractController
 
         $argonautes = $this->repo->findAll();
 
-        if(!isset($submit)) {
-            return $this->render('argonaute/create.html.twig', ['mesargonautes' => $argonautes]);
-        }
-        // dd('ici');
-        $inputNewArgonaute = trim($request->get('inputNewArgonaute'));
+        if ($submit !== null) {
+            //tous les actions qu'on click sur le button submit
 
-        if(empty($inputNewArgonaute)){
+            // dd($submit);
+            $inputNewArgonaute = trim($request->get('inputNewArgonaute'));
+            if (empty($inputNewArgonaute)) {
+                return $this->render('argonaute/create.html.twig', [
+                    'error' => 'Le nom de l`argonaute est requis !',
+                    'mesargonautes' => $argonautes,
+                ]);
+            }
+
+            // dd($inputNewArgonaute);
+            $argonaute = new Argonaute();
+            $argonaute->setNom($inputNewArgonaute);
+            $this->repo->save($argonaute, true);
+            return $this->redirect('/');
+        } else {
+            //tous les actions si le btn submit n'est pas cliqué
+            $argonautes = $this->repo->findAll();
+
             return $this->render('argonaute/create.html.twig', [
-                'error'=> 'L`argonaute est requis !',
-                'monargonaute' => $argonautes
+                'mesargonautes' => $argonautes,
             ]);
         }
-
-        $argonaute = new Argonaute();
-        $argonaute->setNom($inputNewArgonaute);
-        // dd($argonaute);
-        $this->repo->save($argonaute, true);
-
-        return $this->redirect('/');
     }
-    
-    }
-
-
-   
+}

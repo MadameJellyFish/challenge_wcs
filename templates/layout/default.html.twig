@@ -7,6 +7,12 @@
     </title>
     <link rel="icon" href="assets/img/favicon.ico" />
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js"
+      crossorigin="anonymous"></script>
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" />
   </head>
 
   <body>
@@ -26,9 +32,38 @@
     </main>
     <!-- footer section -->
     <footer>
-      <p>
-        Réalisé par Jason en Anthestérion de l'an 515 avant JC
-      </p>
+      <div>
+        <p>
+          Réalisé par Jason en Anthestérion de l'an 515 avant JC
+        </p>
+        <div class="reseau">
+          <a href="#" >
+            <span class="fa-stack fa-lg icon">
+              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+          </a>
+          <a href="#">
+            <span class="fa-stack fa-lg icon">
+              <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+            </span>
+          </a>
+          <a href="#">
+            <span class="fa-stack fa-lg icon">
+              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+          </a>
+        </div>
+      </div>
+      <div>
+        <p>
+          © 2021 Copyright: MDBootstrap.com
+        </p>
+      </div>
     </footer>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="{{ asset('assets/js/app.js') }}"></script>
+    <script>
+      AOS.init({ easing: 'ease-out-back', duration: 3000 });
+    </script>
   </body>
 </html>

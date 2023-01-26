@@ -26,7 +26,7 @@ class ArgonauteController extends AbstractController
         $argonautes = $this->repo->findAll();
 
         if ($submit !== null) {
-            //tous les actions qu'on click sur le button submit
+            //tous les actions quand on click sur le button submit
 
             // dd($submit);
             $inputNewArgonaute = trim($request->get('inputNewArgonaute'));
@@ -42,7 +42,7 @@ class ArgonauteController extends AbstractController
             $argonaute->setNom($inputNewArgonaute);
             $this->repo->save($argonaute, true);
             return $this->redirect('/');
-        } else {
+            } else {
             //tous les actions si le btn submit n'est pas cliqué
             $argonautes = $this->repo->findAll();
 

@@ -2,33 +2,43 @@
 
 {% block main %}
   <!-- New member form -->
-  <h2>
+  <h2 data-aos="fade-down" data-aos-anchor-placement="top-center">
     Ajouter un(e) Argonaute
   </h2>
 
   <form class="new-member-form" action="/" methods="POST">
-    <label for="name">Nom de l&apos;Argonaute :</label>
-    <input id="name" name="inputNewArgonaute" type="text" placeholder="Charalampos" />
-    <button type="submit" name="submit">Envoyer</button>
-        {% if error is defined %}
-            <div class="error">{{error}}</div>
-        {% endif %}
-  </form
+    <div class="group">
+      <input id="name"
+        name="inputNewArgonaute"
+        type="text"
+        required
+        oninvalid="this.setCustomValidity('Le nom de l`argonaute est requis !')"
+        oninput="setCustomValidity('')" />
+      <span class="highlight"></span>
+      <span class="bar"></span>
+      {% if error is defined %}
+        <div class="error">
+          {{ error }}
+        </div>
+      {% endif %}
+      <label for="name">Nom de l&apos;Argonaute :</label>
+    </div>
+    <button type="submit" name="submit" id="envoyerBtn">Envoyer</button>
+  </form>
 
-   <h2>
-    Membres de l'équipage :
-  </h2>
-  <section class="member-list">
-    {% if mesargonautes is not empty %}
-    
-    {% for argonaute in mesargonautes %}
-      <div class="member-item">
-        {{ argonaute.nom }}
-      </div>
-    {% endfor %}
-
-    {% endif %}
-    
-  </section>
-
+  <article>
+  <h2 id="membresDisplay"> Bienvenue à bord !</h2>
+    <h2 >
+      Membres de l'équipage :
+    </h2>
+    <section class="member-list">
+      {% if mesargonautes is not empty %}
+        {% for argonaute in mesargonautes %}
+          <div class="member-item">
+            {{ argonaute.nom }}
+          </div>
+        {% endfor %}
+      {% endif %}
+    </section>
+  </article>
 {% endblock %}
